@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AIHealthMonitor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+894e4c4570b875b317367d2c2da3d7051896e574")]
 [assembly: System.Reflection.AssemblyProductAttribute("AIHealthMonitor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AIHealthMonitor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

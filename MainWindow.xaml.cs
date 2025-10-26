@@ -1,23 +1,48 @@
-﻿using System.Text;
+﻿using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows.Threading;
+using AIHealthMonitor.Diagnostics;
 
-namespace AIHealthMonitor;
-
-/// <summary>
-/// Interaction logic for MainWindow.xaml
-/// </summary>
-public partial class MainWindow : Window
+namespace AIHealthMonitor
 {
-    public MainWindow()
+    public partial class MainWindow : Window
     {
-        InitializeComponent();
+        private readonly DispatcherTimer _timer;
+        private readonly SystemDiagnosticsService _diagnostics;
+
+        public MainWindow()
+        {
+            InitializeComponent();
+
+            _diagnostics = new SystemDiagnosticsService();
+
+            _timer = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromSeconds(2)
+            };
+            _timer.Tick += UpdateSystemInfo;
+            _timer.Start();
+        }
+
+        private void UpdateSystemInfo(object sender, EventArgs e)
+        {
+            var stats = _diagnostics.GetSystemStats();
+
+            CpuBar.Value = stats.CpuUsage;
+            RamBar.Value = stats.RamUsage;
+            DiskBar.Value = stats.DiskUsage;
+            BatteryBar.Value = stats.BatteryLevel;
+
+            DiagnosticsOutput.Text =
+                $"=== SYSTEM DIAGNOSTICS ===\n" +
+                $"CPU Usage: {stats.CpuUsage:0.0}%\n" +
+                $"RAM Usage: {stats.RamUsage:0.0}%\n" +
+                $"Disk Usage: {stats.DiskUsage:0.0}%\n" +
+                $"Battery: {stats.BatteryLevel:0.0}%\n" +
+                $"Network: {stats.NetworkInfo}\n" +
+                $"GPU: {stats.GPUInfo}\n" +
+                $"System: {stats.SystemInfo}\n" +
+                $"===========================";
+        }
     }
 }

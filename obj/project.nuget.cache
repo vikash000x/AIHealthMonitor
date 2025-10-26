@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "x1I9ALXFc0E=",
+  "dgSpecHash": "i2iOI98C04k=",
   "success": true,
   "projectFilePath": "C:\\Users\\DELL\\Desktop\\forHacktober\\AIHealthMonitor\\AIHealthMonitor.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\DELL\\.nuget\\packages\\system.codedom\\9.0.10\\system.codedom.9.0.10.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\system.management\\9.0.10\\system.management.9.0.10.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -3,11 +3,37 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="AI Health Monitor" Height="450" Width="800"
         Background="#1E1E1E" Foreground="White">
-    <Grid>
-        <TextBlock Text="Welcome to AI Health Monitor 🚀"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="24"
-                   FontWeight="Bold"/>
+    
+    <Grid Margin="20">
+        <StackPanel Orientation="Vertical" VerticalAlignment="Top">
+            <TextBlock Text="AI Health Monitor 🚀"
+                       FontSize="24" FontWeight="Bold"
+                       Foreground="White"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,20"/>
+
+            <TextBlock Text="CPU Usage" Foreground="White"/>
+            <ProgressBar x:Name="CpuBar" Height="20" Minimum="0" Maximum="100" Value="0"
+                         Foreground="Lime" Background="#333" Margin="0,0,0,10"/>
+
+            <TextBlock Text="RAM Usage" Foreground="White"/>
+            <ProgressBar x:Name="RamBar" Height="20" Minimum="0" Maximum="100" Value="0"
+                         Foreground="Orange" Background="#333" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Disk Usage" Foreground="White"/>
+            <ProgressBar x:Name="DiskBar" Height="20" Minimum="0" Maximum="100" Value="0"
+                         Foreground="Red" Background="#333" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Battery" Foreground="White"/>
+            <ProgressBar x:Name="BatteryBar" Height="20" Minimum="0" Maximum="100" Value="0"
+                         Foreground="Blue" Background="#333" Margin="0,0,0,10"/>
+
+            <!-- Live text diagnostics below -->
+            <TextBlock x:Name="DiagnosticsOutput"
+                       Foreground="White"
+                       TextWrapping="Wrap"
+                       Margin="0,20,0,0"
+                       FontFamily="Consolas"/>
+        </StackPanel>
     </Grid>
 </Window>
